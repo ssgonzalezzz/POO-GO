@@ -24,17 +24,10 @@ func main() {
 
 	fmt.Println(Go.UserIDs)
 
-	// Css := Curso{
-	// Name:  "CSS desde cero",
-	// Price: 20,
-	// }
-	//
-	// Js := Curso{}
-	//
-	// Js.Name = "Javascript desde cero"
+	Go.AddClass("Prueba")
 
-	// fmt.Println(Go.Name)
-	// fmt.Printf("%+v\n", Css)
-	// fmt.Println(Js.Name)
+	Go.AddClass("Prueba 2")
+
+	fmt.Println(Go.Classes)
 
 }

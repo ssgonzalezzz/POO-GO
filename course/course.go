@@ -20,6 +20,12 @@ func (c Course) PrintClasses() {
 	fmt.Println(text)
 }
 
+// Permite agregar una nueva clase al curso
+func (c *Course) AddClass(className string) {
+	l := len(c.Classes)
+	c.Classes[uint(l)+1] = className
+}
+
 //Agrega un nuevo usuario al curso
 func (c *Course) AddUserId(id uint) []uint {
 	c.UserIDs = append(c.UserIDs, id)
