@@ -2,32 +2,13 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/ssgonzalezzz/POO-GO/course"
 )
-
-type Curso struct {
-	Name    string
-	Price   float64
-	IsFree  bool
-	UserIDs []uint
-	Classes map[uint]string
-}
-
-func (c Curso) PrintClasses() {
-	text := "Las clases del curso " + c.Name + " son: \n"
-	for _, v := range c.Classes {
-		text += "- " + v + "\n"
-	}
-	fmt.Println(text)
-}
-
-func (c *Curso) AddUserId(id uint) []uint {
-	c.UserIDs = append(c.UserIDs, id)
-	return c.UserIDs
-}
 
 func main() {
 
-	Go := Curso{
+	Go := course.Course{
 		Name:    "Go desde cero",
 		Price:   12.34,
 		IsFree:  false,
@@ -39,7 +20,8 @@ func main() {
 		},
 	}
 
-	(&Go).AddUserId(69)
+	Go.AddUserId(75)
+
 	fmt.Println(Go.UserIDs)
 
 	// Css := Curso{
