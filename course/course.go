@@ -1,6 +1,8 @@
 package course
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Estructura basica de los objetos de tipo Course. Pueden exportarse entre paquetes ya que su nombre inicia en mayusculas
 type Course struct {
@@ -11,13 +13,16 @@ type Course struct {
 	Classes map[uint]string
 }
 
-//Imprime en consola las clases contenidas en un objeto de tipo Course
+//Imprime en consola las clases contenidas en un objeto de tipo Course.
 func (c Course) PrintClasses() {
 	text := "Las clases del curso " + c.Name + " son: \n"
-	for _, v := range c.Classes {
-		text += "- " + v + "\n"
+
+	for i := 1; i <= len(c.Classes); i++ {
+		text = text + c.Classes[uint(i)] + "\n"
 	}
+
 	fmt.Println(text)
+
 }
 
 // Permite agregar una nueva clase al curso

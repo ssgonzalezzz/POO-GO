@@ -28,6 +28,6 @@ func main() {
 
 	Go.AddClass("Prueba 2")
 
-	fmt.Println(Go.Classes)
+	Go.PrintClasses()
 
 }
