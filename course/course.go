@@ -15,20 +15,29 @@ type Course struct {
 
 //Imprime en consola las clases contenidas en un objeto de tipo Course.
 func (c Course) PrintClasses() {
-	text := "Las clases del curso " + c.Name + " son: \n"
 
-	for i := 1; i <= len(c.Classes); i++ {
-		text = text + c.Classes[uint(i)] + "\n"
+	if c.Classes != nil && len(c.Classes) != 0 {
+		text := "Las clases del curso " + c.Name + " son: \n"
+
+		for i := 1; i <= len(c.Classes); i++ {
+			text = text + "- " + c.Classes[uint(i)] + "\n"
+		}
+
+		fmt.Println(text)
+		return
 	}
-
-	fmt.Println(text)
+	fmt.Println("El curso no tiene clases asignadas")
 
 }
 
-// Permite agregar una nueva clase al curso
-func (c *Course) AddClass(className string) {
-	l := len(c.Classes)
-	c.Classes[uint(l)+1] = className
+// Permite agregar una o mas clases nuevas al curso
+func (c *Course) AddClass(className ...string) {
+	var l int
+	for _, v := range className {
+		l = len(c.Classes)
+		c.Classes[uint(l)+1] = v
+	}
+
 }
 
 //Agrega un nuevo usuario al curso

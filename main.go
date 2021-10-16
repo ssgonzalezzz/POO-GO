@@ -20,14 +20,18 @@ func main() {
 		},
 	}
 
+	css := course.Course{
+		Name:    "CSS desde cero",
+		Classes: map[uint]string{},
+	}
+
 	Go.AddUserId(75)
 
 	fmt.Println(Go.UserIDs)
 
-	Go.AddClass("Prueba")
-
-	Go.AddClass("Prueba 2")
+	Go.AddClass("Prueba", "Prueba 2")
 
 	Go.PrintClasses()
+	css.PrintClasses()
 
 }
