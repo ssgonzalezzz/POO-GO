@@ -14,7 +14,7 @@ type course struct {
 }
 
 //Metodo constructor del objeto
-func New(name string, price float64) *course {
+func New(name string, price float64) course {
 	var isFree bool = false
 
 	if price == 0 {
@@ -22,7 +22,7 @@ func New(name string, price float64) *course {
 		fmt.Println("Precio = 0, se establecio como curso gratis")
 	}
 
-	return &course{
+	return course{
 		name:   name,
 		price:  price,
 		isFree: isFree,

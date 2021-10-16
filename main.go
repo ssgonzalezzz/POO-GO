@@ -3,27 +3,26 @@ package main
 import (
 	"fmt"
 
-	"github.com/ssgonzalezzz/POO-GO/course"
+	"github.com/ssgonzalezzz/POO-GO/pkg/costumer"
+	"github.com/ssgonzalezzz/POO-GO/pkg/invoice"
+	"github.com/ssgonzalezzz/POO-GO/pkg/invoiceitem"
 )
 
 func main() {
 
-	// Go.AddUserId(75)
+	i := invoice.New(
+		"Venezuela",
+		"San Antonio de Los Altos",
+		costumer.New("Samuel", "Res San Antonio", "+584125583846"),
+		[]invoiceitem.Item{
+			invoiceitem.New(1, "Curso de Go", 12.34),
+			invoiceitem.New(2, "Curso de CSS", 10.00),
+			invoiceitem.New(3, "Curso de JS", 25.15),
+		},
+	)
 
-	// fmt.Println(Go.UserIDs)
+	i.SetTotal()
 
-	// Go.AddClass("Prueba", "Prueba 2")
-
-	// Go.PrintClasses()
-
-	Go := course.New("Go desde cero", 15)
-	Go.SetIds([]uint{12, 32, 84})
-	Go.SetClasses(map[uint]string{
-		1: "Introduccion",
-		2: "Estructuras",
-		3: "Mapas",
-	})
-
-	fmt.Printf("%+v", Go)
+	fmt.Printf("%+v", i)
 
 }
