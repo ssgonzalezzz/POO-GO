@@ -17,12 +17,12 @@ func main() {
 	// Go.PrintClasses()
 
 	Go := course.New("Go desde cero", 15)
-	Go.UserIDs = []uint{12, 32, 84}
-	Go.Classes = map[uint]string{
+	Go.SetIds([]uint{12, 32, 84})
+	Go.SetClasses(map[uint]string{
 		1: "Introduccion",
 		2: "Estructuras",
 		3: "Mapas",
-	}
+	})
 
 	fmt.Printf("%+v", Go)
 
