@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-type course struct {
+type Course struct {
 	name    string
 	price   float64
 	isFree  bool
@@ -14,7 +14,7 @@ type course struct {
 }
 
 //Metodo constructor del objeto
-func New(name string, price float64) course {
+func New(name string, price float64) Course {
 	var isFree bool = false
 
 	if price == 0 {
@@ -22,7 +22,7 @@ func New(name string, price float64) course {
 		fmt.Println("Precio = 0, se establecio como curso gratis")
 	}
 
-	return course{
+	return Course{
 		name:   name,
 		price:  price,
 		isFree: isFree,
@@ -35,13 +35,13 @@ func New(name string, price float64) course {
 /* -------------------------------------------------------------------------- */
 
 // Setter para nombre de curso
-func (c *course) SetName(name string) { c.name = name }
+func (c *Course) SetName(name string) { c.name = name }
 
 // Getter para nombre de curso
-func (c *course) Name() string { return c.name }
+func (c *Course) Name() string { return c.name }
 
 // Setter para precio de curso
-func (c *course) SetPrice(price float64) {
+func (c *Course) SetPrice(price float64) {
 	if price == 0 {
 		c.price = price
 		c.isFree = true
@@ -57,19 +57,19 @@ func (c *course) SetPrice(price float64) {
 }
 
 //Getter para precio de curso
-func (c *course) Price() float64 { return c.price }
+func (c *Course) Price() float64 { return c.price }
 
 //Getter para saber si el curso es gratuito. Para cambiar esta propiedad, usar el metodo SetPrice()
-func (c *course) IsFree() bool { return c.isFree }
+func (c *Course) IsFree() bool { return c.isFree }
 
 //Setter para IDs de usuarios
-func (c *course) SetIds(ids []uint) { c.userIDs = ids }
+func (c *Course) SetIds(ids []uint) { c.userIDs = ids }
 
 // Setter clases de curso
-func (c *course) SetClasses(classes map[uint]string) { c.classes = classes }
+func (c *Course) SetClasses(classes map[uint]string) { c.classes = classes }
 
 //Getter de classes de curso.
-func (c *course) Classes() string {
+func (c *Course) Classes() string {
 
 	if c.classes != nil && len(c.classes) != 0 {
 		text := "Las clases del curso " + c.name + " son: \n"
@@ -89,7 +89,7 @@ func (c *course) Classes() string {
 /* -------------------------------------------------------------------------- */
 
 // Permite agregar una o mas clases nuevas al curso
-func (c *course) AddClass(className ...string) {
+func (c *Course) AddClass(className ...string) {
 	var l int
 	for _, v := range className {
 		l = len(c.classes)
@@ -99,7 +99,7 @@ func (c *course) AddClass(className ...string) {
 }
 
 //Agrega un nuevo usuario al curso
-func (c *course) AddUserId(id uint) []uint {
+func (c *Course) AddUserId(id uint) []uint {
 	c.userIDs = append(c.userIDs, id)
 	return c.userIDs
 }
