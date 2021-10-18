@@ -18,6 +18,7 @@ func main() {
 			course.New("Go desde cero", 7.8),
 			course.New("POO con Go", 15.6),
 			course.New("Testing con Go", 22.33),
+			course.New("Bases de datos desde cero", 0),
 		},
 	)
 
